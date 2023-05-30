@@ -4,9 +4,9 @@
 
 ## Features
 
-📚 Information about the CSE Department
-👨‍🏫 Faculty profiles and contact information
-👨‍🎓 Student profiles and achievements
-📝 Course details and syllabus
-📰 News and events related to the department
-📚 Resources for students and faculty
+- 📚 Information about the CSE Department
+- 👨‍🏫 Faculty profiles and contact information
+- 👨‍🎓 Student profiles and achievements
+- 📝 Course details and syllabus
+- 📰 News and events related to the department
+- 📚 Resources for students and faculty
