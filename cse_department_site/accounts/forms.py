@@ -26,17 +26,16 @@ class StudentProfileSignUpForm(UserCreationForm):
  
         return student
     
-    class StaffProfileSignUpForm(UserCreationForm):
+class StaffProfileSignUpForm(UserCreationForm):
       name=forms.CharField(required=True)
       phone_number=forms.IntegerField(required=True)
       email=forms.CharField(required=True)
       subject= forms.CharField(required=True)
-  
-    class Meta(UserCreationForm.Meta):
+      class Meta(UserCreationForm.Meta):
         model = User
  
-    @transaction.atomic
-    def save(self):
+      @transaction.atomic
+      def save(self):
         user = super().save(commit=False)
         
         user.is_staff = True
@@ -47,7 +46,7 @@ class StudentProfileSignUpForm(UserCreationForm):
  
         return staff
     
-    class AlumniProfileSignUpForm(UserCreationForm):
+class AlumniProfileSignUpForm(UserCreationForm):
       name=forms.CharField(required=True)
       phone_number=forms.IntegerField(required=True)
       email=forms.EmailField( required=False)
