@@ -21,6 +21,6 @@ class Gallery(models.Model):
     
     def get_image(self):
         if self.image:
-            return ' '+self.image.url
+            return 'http://127.0.0.1:5500/' +self.image.url
         return ''
     
