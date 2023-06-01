@@ -23,4 +23,3 @@ class Gallery(models.Model):
         if self.image:
             return 'http://127.0.0.1:5500/' +self.image.url
         return ''
-    
