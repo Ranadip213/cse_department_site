@@ -11,5 +11,5 @@ def carousel_images(request):
 def gallery_images(request):
     data = Gallery.object.all()
     context = {'images': data}
-    return render{request,'gallery.html', context} 
+    return render(request,'gallery.html', context)
     
