@@ -1,69 +1,24 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-from .models import User, StudentProfile,StaffProfile,AlumniProfile
+from .models import User,CustomUser
 
-class StudentProfileSignUpForm(UserCreationForm):
-    name=forms.CharField(required=True)
-    id_number=forms.CharField(required=True)
-    id_number=forms.CharField(required=True)
-    Academic_year=forms.CharField(required=True)
-    phone_number=forms.CharField(required=True)
-    email=forms.CharField(required=True)
-  
-    class Meta(UserCreationForm.Meta):
-        model = User
- 
-    @transaction.atomic
-    def save(self):
-        user = super().save(commit=False)
-        
-        user.is_student = True
-        user.save()
-        student = StudentProfile.objects.create(user=user)
-        
-        student.save()
- 
-        return student
-    
-class StaffProfileSignUpForm(UserCreationForm):
-      name=forms.CharField(required=True)
-      phone_number=forms.IntegerField(required=True)
-      email=forms.CharField(required=True)
-      subject= forms.CharField(required=True)
-      class Meta(UserCreationForm.Meta):
-        model = User
- 
-      @transaction.atomic
-      def save(self):
-        user = super().save(commit=False)
-        
-        user.is_staff = True
-        user.save()
-        staff = StaffProfile.objects.create(user=user)
-        
-        staff.save()
- 
-        return staff
-    
-class AlumniProfileSignUpForm(UserCreationForm):
-      name=forms.CharField(required=True)
-      phone_number=forms.IntegerField(required=True)
-      email=forms.EmailField( required=False)
-      academic_year= forms.CharField(required=True)
-      company= forms.CharField(max_length=100)
-    
-      class Meta(UserCreationForm.Meta):
-          model = User
-  
-      @transaction.atomic
-      def save(self):
-          user = super().save(commit=False)
-          
-          user.is_alumni = True
-          user.save()
-          alumni = AlumniProfile.objects.create(user=user)
-          
-          alumni.save()
-  
-          return alumni
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields= ['username', 'email', 'password', 'student_field', 'staff_field', 'alumni_field']
+
+
+        def clean(self):
+            cleaned_data= super().clean()
+            user_type= cleaned_data.get('user_type')
+
+            if user_type == 'student':
+                if not cleaned_data.get('student_field'):
+                    self.add_error('student_field', 'this field is requird for students')
+            elif user_type == 'staff':
+                if not cleaned_data.get('staff_field'):
+                    self.add_error('staff_field', 'this field is required for staff members')
+                elif user_type == 'alumni':
+                    if not cleaned_data.get('alumni_field'):
+                        self.add_error('alumni_field', 'this field is required for alumni')
