@@ -11,12 +11,24 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from django.contrib.auth.models import User
 import os
 
+import platform
+
+if platform.system() == 'Linux':
+    NPM_BIN_PATH = '/usr/bin/npm'
+elif platform.system() == 'Windows':
+    NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+else:
+    # Handle other platforms if needed
+    NPM_BIN_PATH = '/usr/bin/npm'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Templates Directory
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
+TAILWIND_APP_NAME = 'theme'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -29,6 +41,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Application definition
 
@@ -40,8 +55,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'accounts',
-    'about'
+    'about',
+    'events',
+
+    'tailwind',
+    'theme',
+    "crispy_forms",                     # new
+    "crispy_tailwind",
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +82,7 @@ ROOT_URLCONF = 'cse_department_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,14 +103,10 @@ WSGI_APPLICATION = 'cse_department_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'newuser',
-        'USER': 'postgres',
-        'PASSWORD':"2320",
-        'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -108,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL='accounts.User'
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -124,7 +143,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "thems/static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'thems/static/images')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'thems/static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
