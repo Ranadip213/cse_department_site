@@ -13,15 +13,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+from decouple import config
+
 import platform
 
-if platform.system() == 'Linux':
+DJANGO_SECRET_KEY = config('DJANGO_SECRET_KEY')
+
+if platform.system() != 'Windows':
     NPM_BIN_PATH = '/usr/bin/npm'
-elif platform.system() == 'Windows':
-    NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 else:
     # Handle other platforms if needed
-    NPM_BIN_PATH = '/usr/bin/npm'
+    NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +37,7 @@ TAILWIND_APP_NAME = 'theme'
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o$do4pup_%m&0u%lekv=db+b&p00a6843m8v&ivy7%(oqjn9q!'
+SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
