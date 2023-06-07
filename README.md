@@ -10,3 +10,12 @@
 - 📝 Course details and syllabus
 - 📰 News and events related to the department
 - 📚 Resources for students and faculty
+
+## Installation
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required packages using the following command:
+
+```bash
+pip install -r requirements.txt
