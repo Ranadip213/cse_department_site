@@ -13,3 +13,5 @@ def gallery_images(request):
     context = {'images': data}
     return render(request,'screens/gallery.html', context)
     
+def clubs(request):
+    return render(request, 'screens/clubs.html')
