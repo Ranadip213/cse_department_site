@@ -1,1 +1,26 @@
+<<<<<<< HEAD
 ggg
+=======
+{% load tailwind_tags %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department Site</title>
+    
+    {% tailwind_css %}
+
+  </head>
+  <body>
+    {% include 'components/nav.html' %}
+    {% block content %}
+
+
+    {% endblock content %}
+    {% include 'components/footer.html' %}
+  </body>
+</html>
+>>>>>>> f313e1d5ed90e5cf9f01deac29ac3f30efb11692
