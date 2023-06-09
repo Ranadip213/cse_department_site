@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserForm
+from .forms import AlumniForm, CreateUserForm, StaffForm, StudentForm
 from django.contrib import messages
 
 def register_page(request):
@@ -18,14 +18,55 @@ def register_page(request):
             if form.is_valid():
                 # Save the form and create a new user
                 form.save()
-                # Get the username of the newly created user
-                user = form.cleaned_data.get('username')
-                # Send a success message
-                messages.success(request, 'Account was created for ' + user)
-                # Redirect to the home page
-                return redirect('home')
+                # Get the user type from the form data
+                user_type = form.cleaned_data.get('user_type')
+
+                # Redirect to the appropriate form based on user type
+                if user_type == 'student':
+                    return redirect('register_student')
+                elif user_type == 'alumni':
+                    return redirect('register_alumni')
+                elif user_type == 'staff':
+                    return redirect('register_staff')
+                
         # Render the register template with the form
         return render(request, 'components/register.html', context={'form': form})         
+
+def student_form(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.user = request.user
+            student.save()
+            return redirect('home')
+    else:
+        form = StudentForm()
+    return render(request, 'components/student_form.html', context={'form': form})
+
+def alumni_form(request):
+    if request.method == 'POST':
+        form = AlumniForm(request.POST)
+        if form.is_valid():
+            alumni = form.save(commit=False)
+            alumni.user = request.user
+            alumni.save()
+            return redirect('home')
+    else:
+        form = AlumniForm()
+    return render(request, 'components/alumni_form.html', context={'form': form})
+
+def staff_form(request):
+    if request.method == 'POST':
+        form = StaffForm(request.POST)
+        if form.is_valid():
+            staff = form.save(commit=False)
+            staff.user = request.user
+            staff.save()
+            return redirect('home')
+    else:
+        form = StaffForm()
+    return render(request, 'components/staff_form.html', context={'form': form})
 
 def login_page(request):
     # Check if the user is already authenticated

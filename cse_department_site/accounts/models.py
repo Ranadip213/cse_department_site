@@ -11,3 +11,19 @@ class CustomUser(AbstractUser):
     )
 
     user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES)
+
+    class Meta:
+        verbose_name = 'Custom User'
+        verbose_name_plural = 'Custom Users'
+
+class Student(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='student')
+    student_field = models.CharField(max_length=100)
+
+class Alumni(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='alumni')
+    alumni_field = models.CharField(max_length=100)
+
+class Staff(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='staff')
+    staff_field = models.CharField(max_length=100)
