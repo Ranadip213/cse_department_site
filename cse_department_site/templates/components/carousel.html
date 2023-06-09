@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="container mx-auto flex p-5 items-center border rounded-full h-fill">
+    div class="swiper mySwiper">
+       <div
+         class="swiper-wrapper"
+         data-space-between="30"
+         data-centered-slides="true"
+         data-slides-per-view="1"
+         data-loop="true"
+         data-autoplay='{"delay":2000,"disableOnInteraction":false,"pauseOnMouseEnter":true}'
+         data-pagination='{"clickable":true}'
+         data-navigation="true"
+         data-modules="modules"
+       >
+         {% for image in images %}
+         <div class="swiper-slide" data-id="{{ image.id }}">
+           <p class="absolute bottom-20">{{ image.topic }}</p>
+           <p class="absolute bottom-10">{{ image.description }}</p>
+           <img
+             class="object-cover w-full holo rounded-3xl"
+             src="{{ image.image.urls }}"
+             alt="image slider"
+           />
+         </div>
+         {% endfor %}
+       </div>
+     </div>
+   </div>
+   
