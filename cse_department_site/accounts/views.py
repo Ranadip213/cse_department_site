@@ -17,7 +17,8 @@ def register_page(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 # Save the form and create a new user
-                form.save()
+                user = form.save()
+                login(request, user)  # Log in the user after registration
                 # Get the user type from the form data
                 user_type = form.cleaned_data.get('user_type')
 
