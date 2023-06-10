@@ -20,8 +20,8 @@ class Student(models.Model):
     student_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)
-    year=models.IntegerField
-    email=models.EmailField(_(""), max_length=254)
+    year=models.IntegerField()
+    email=models.EmailField(max_length=254)
     
 
 class Alumni(models.Model):
@@ -29,7 +29,7 @@ class Alumni(models.Model):
     alumni_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)
-    email=models.EmailField(_(""), max_length=254)
+    email=models.EmailField(max_length=254)
     specialization=models.CharField(max_length=100)
 
 class Staff(models.Model):
@@ -37,6 +37,6 @@ class Staff(models.Model):
     staff_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)
-    email=models.EmailField(_(""), max_length=254)
+    email=models.EmailField(max_length=254)
     current_company= models.CharField(max_length=100)
     graduation_year= models.IntegerField(max_length=100)
