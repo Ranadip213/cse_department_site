@@ -19,11 +19,25 @@ class CustomUser(AbstractUser):
 class Student(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='student')
     student_field = models.CharField(max_length=100)
+    full_name= models.CharField(max_length=100)
+    contact_number= models.IntegerField(max_length=10)
+    year=models.IntegerField
+    email=models.EmailField(_(""), max_length=254)
+    
 
 class Alumni(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='alumni')
     alumni_field = models.CharField(max_length=100)
+    full_name= models.CharField(max_length=100)
+    contact_number= models.IntegerField(max_length=10)
+    email=models.EmailField(_(""), max_length=254)
+    specialization=models.CharField(max_length=100)
 
 class Staff(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='staff')
     staff_field = models.CharField(max_length=100)
+    full_name= models.CharField(max_length=100)
+    contact_number= models.IntegerField(max_length=10)
+    email=models.EmailField(_(""), max_length=254)
+    current_company= models.CharField(max_length=100)
+    graduation_year= models.IntegerField(max_length=100)
