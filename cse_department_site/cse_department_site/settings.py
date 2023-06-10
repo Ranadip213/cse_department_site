@@ -52,6 +52,8 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 INSTALLED_APPS = [
     
+    'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,6 +77,11 @@ INSTALLED_APPS = [
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "solar",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

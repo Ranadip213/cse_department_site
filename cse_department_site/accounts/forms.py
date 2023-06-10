@@ -9,14 +9,14 @@ class CreateUserForm(UserCreationForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['student_field']
+        fields = '__all__'
 
 class AlumniForm(forms.ModelForm):
     class Meta:
         model = Alumni
-        fields = ['alumni_field']
+        fields = '__all__'
 
 class StaffForm(forms.ModelForm):
     class Meta:
         model = Staff
-        fields = ['staff_field']		
+        fields = '__all__'
