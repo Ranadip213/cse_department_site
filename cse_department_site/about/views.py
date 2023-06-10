@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django . shortcuts import render
-from .models import Gallery
+from .models import Club, Gallery
 
 def carousel_images(request):
     data = Gallery.objects.all()[:6]
@@ -12,6 +12,7 @@ def gallery_images(request):
     data = Gallery.object.all()
     context = {'images': data}
     return render(request,'screens/gallery.html', context)
-    
+
 def clubs(request):
-    return render(request, 'screens/clubs.html')
+    clubs = Club.objects.all()
+    return render(request, 'screens/clubs.html', {'clubs': clubs})   

@@ -114,7 +114,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cse_department_site.wsgi.application'
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.Users'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
