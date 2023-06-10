@@ -1,9 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.contrib.auth.models import User
 
 
-class CustomUser(AbstractUser):
+class Users(AbstractUser):
     USER_TYPE_CHOICES = (
         ('student', 'Student'),
         ('staff', 'Staff Member'),
@@ -17,7 +16,7 @@ class CustomUser(AbstractUser):
         verbose_name_plural = 'Custom Users'
 
 class Student(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='student')
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='student')
     student_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)
@@ -26,7 +25,7 @@ class Student(models.Model):
     
 
 class Alumni(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='alumni')
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
     alumni_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)
@@ -34,7 +33,7 @@ class Alumni(models.Model):
     specialization=models.CharField(max_length=100)
 
 class Staff(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='staff')
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='staff')
     staff_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
     contact_number= models.IntegerField(max_length=10)

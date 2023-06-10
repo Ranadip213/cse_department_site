@@ -23,3 +23,12 @@ class Gallery(models.Model):
         if self.image:
             return 'http://127.0.0.1:5500/' +self.image.url
         return ''
+
+class Club(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to='club_images/')
+    url = models.URLField()
+
+    def __str__(self):
+        return self.name
