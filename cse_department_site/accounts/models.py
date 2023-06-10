@@ -22,7 +22,6 @@ class Student(models.Model):
     contact_number= models.IntegerField(max_length=10)
     year=models.IntegerField()
     email=models.EmailField(max_length=254)
-    
 
 class Alumni(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
