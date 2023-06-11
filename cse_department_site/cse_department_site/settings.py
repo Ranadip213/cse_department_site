@@ -68,7 +68,7 @@ INSTALLED_APPS = [
 
     'tailwind',
     'theme',
-    "crispy_forms",                     # new
+    "crispy_forms",                     
     "crispy_tailwind",
     'django_browser_reload',
     'whitenoise.runserver_nostatic',
@@ -81,6 +81,11 @@ INTERNAL_IPS = [
 JAZZMIN_UI_TWEAKS = {
     "theme": "flatly",
     "dark_mode_theme": "solar",
+}
+
+JAZZMIN_SETTINGS = {
+    "site_header": "CSE DEPARTMENT",
+    "site_brand": "CSE DEPARTMENT",
 }
 
 MIDDLEWARE = [

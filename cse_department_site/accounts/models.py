@@ -19,7 +19,7 @@ class Student(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='student')
     student_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
-    contact_number= models.IntegerField(max_length=10)
+    contact_number= models.IntegerField()
     year=models.IntegerField()
     email=models.EmailField(max_length=254)
 
@@ -27,7 +27,7 @@ class Alumni(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
     alumni_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
-    contact_number= models.IntegerField(max_length=10)
+    contact_number= models.IntegerField()
     email=models.EmailField(max_length=254)
     specialization=models.CharField(max_length=100)
 
@@ -35,7 +35,7 @@ class Staff(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='staff')
     staff_field = models.CharField(max_length=100)
     full_name= models.CharField(max_length=100)
-    contact_number= models.IntegerField(max_length=10)
+    contact_number= models.IntegerField()
     email=models.EmailField(max_length=254)
     current_company= models.CharField(max_length=100)
-    graduation_year= models.IntegerField(max_length=100)
+    graduation_year= models.IntegerField()
