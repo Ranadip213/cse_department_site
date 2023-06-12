@@ -40,7 +40,7 @@ TAILWIND_APP_NAME = 'theme'
 SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['csedepartmentsite-production.up.railway.app', 'https://csedepartmentsite-production.up.railway.app/']
 
