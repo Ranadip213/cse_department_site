@@ -1,51 +1,27 @@
 {% load static %}
 
-<div class="text-gray-900 pt-12 pr-0 pb-14 pl-0 bg-white" style="background-image: url('data:image/jpeg;base64,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'); background-repeat: no-repeat; background-size: cover;">
-    <div class="w-full pt-4 pr-5 pb-6 pl-5 mt-0 mr-auto mb-0 ml-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 max-w-7xl">
-        <div class="flex flex-col items-center sm:px-5 md:flex-row">
-            <div class="flex flex-col items-start justify-center w-full h-full pt-6 pr-0 pb-6 pl-0 mb-6 md:mb-0 md:w-1/2">
-                <div class="flex flex-col items-start justify-center h-full space-y-3 transform md:pr-10 lg:pr-16 md:space-y-5">
-                    <div class="bg-green-500 flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2 uppercase inline-block">
-                        <p class="inline">
-                            <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </p>
-                        <p class="inline text-xs font-medium">Hii</p>
-                    </div>
-                    <a class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">Department of CSE</a>
-                    <div class="pt-2 pr-0 pb-0 pl-0">
-                        <p class="text-sm font-medium inline">Enumerating objects: 33, done.
-                            Counting objects: 100% (33/33), done.
-                            Delta compression using up to 4 threads
-                            Compressing objects: 100% (16/16), done.
-                            Writing objects: 100% (18/18), 3.08 KiB | 451.00 KiB/s, done.
-                            Total 18 (delta 11), reused 0 (delta 0), pack-reused 0
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/7">
-                <div class="block">
-                    <div class="w-1/2 mx-auto">
-                        <div class="w-full shadow-2xl subpixel-antialiased rounded h-64 bg-black border-black mx-auto">
-                            <div class="flex items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black" id="headerTerminal">
-                                <div class="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3" id="closebtn">
-                                </div>
-                                <div class="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3" id="minbtn">
-                                </div>
-                                <div class="ml-2 border-green-900 bg-green-500 shadow-inner rounded-full w-3 h-3" id="maxbtn">
-                                </div>
-                                <div class="mx-auto pr-16" id="terminaltitle">
-                                    <p class="text-center text-sm">Terminal</p>
-                                </div>
-                            </div>
-                            <div class="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black" id="console">
-                                <p class="pb-1">root$ epoch "hii ther"</p>
-                                <p class="pb-1">hii ther</p>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
+<section class="bg-black">
+    <div class="text-white">
+      <div class="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
+        <p class="text-[#00df9a] font-bold p-2">
+         DEPARTMENT OF CSE
+        </p>
+        <h1 class="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+          Grow with Us.
+        </h1>
+        <div class="flex justify-center items-center">
+          <p class="md:text-5xl sm:text-4xl text-xl font-bold py-4">
+            Embrace the power of technology in the world of Computer Science and Engineering.
+        </p>
+          </p>
+          <span
+            class="typed-text md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2"
+            id="typed"
+          ></span>
         </div>
+        <p class="md:text-2xl text-xl font-bold text-gray-500">Join the Department of CSE and explore the world of data science, machine learning, and artificial intelligence.</p>
+        <button class="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black">Aboout Us</button>
+      </div>
     </div>
-</div>
+  </section>
+  

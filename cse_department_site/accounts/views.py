@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .forms import AlumniForm, CreateUserForm, StaffForm, StudentForm
 from django.contrib import messages
@@ -29,6 +30,7 @@ def register_page(request):
         return render(request, 'components/register.html', context={'form': form})
 
 
+@login_required
 def student_form(request):
     """
     Renders the student registration form and handles form submission.
@@ -46,6 +48,7 @@ def student_form(request):
     return render(request, 'components/student_form.html', context={'form': form})
 
 
+@login_required
 def alumni_form(request):
     """
     Renders the alumni registration form and handles form submission.
@@ -63,6 +66,7 @@ def alumni_form(request):
     return render(request, 'components/alumni_form.html', context={'form': form})
 
 
+@login_required
 def staff_form(request):
     """
     Renders the staff registration form and handles form submission.
@@ -103,6 +107,7 @@ def login_page(request):
         return render(request, 'components/login.html')
 
 
+@login_required
 def logout_user(request):
     """
     Logs out the current user and redirects them to the login page.
