@@ -42,7 +42,7 @@ SECRET_KEY = DJANGO_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['csedepartmentsite-production.up.railway.app', 'https://csedepartmentsite-production.up.railway.app/']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
