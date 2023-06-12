@@ -22,13 +22,15 @@ class Users(AbstractUser):
 class Student(models.Model):
     """
     Model representing a student.
+    
     """
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='student')
-    student_id = models.CharField(max_length=100)
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
+    alumni_field = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100)
     contact_number = models.IntegerField()
-    year = models.IntegerField()
     email = models.EmailField(max_length=254)
+    specialization = models.CharField(max_length=100)
+
 
     def __str__(self):
         """
@@ -41,12 +43,12 @@ class Alumni(models.Model):
     """
     Model representing an alumni.
     """
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
-    alumni_field = models.CharField(max_length=100)
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='student')
+    student_field = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100)
     contact_number = models.IntegerField()
+    year = models.IntegerField()
     email = models.EmailField(max_length=254)
-    specialization = models.CharField(max_length=100)
 
     def __str__(self):
         """
@@ -59,13 +61,13 @@ class Staff(models.Model):
     """
     Model representing a staff member.
     """
-
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
-    alumni_field = models.CharField(max_length=100)
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='staff')
+    staff_field = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100)
     contact_number = models.IntegerField()
     email = models.EmailField(max_length=254)
-    specialization = models.CharField(max_length=100)
+    current_company = models.CharField(max_length=100)
+    graduation_year = models.IntegerField()
 
     def __str__(self):
         """
