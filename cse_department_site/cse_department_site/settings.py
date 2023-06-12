@@ -40,18 +40,22 @@ TAILWIND_APP_NAME = 'theme'
 SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['csedepartmentsite-production.up.railway.app', 'https://csedepartmentsite-production.up.railway.app/']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
+                 'https://csedepartmentsite-production.up.railway.app/']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
 
+CSRF_TRUSTED_ORIGINS = ['https://csedepartmentsite-production.up.railway.app',
+                        'https://www.csedepartmentsite-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
-    
+
     'jazzmin',
 
     'django.contrib.admin',
@@ -68,7 +72,7 @@ INSTALLED_APPS = [
 
     'tailwind',
     'theme',
-    "crispy_forms",                     
+    "crispy_forms",
     "crispy_tailwind",
     'django_browser_reload',
     'whitenoise.runserver_nostatic',
@@ -93,7 +97,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     "django_browser_reload.middleware.BrowserReloadMiddleware",
-    
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
