@@ -1,11 +1,12 @@
 {% load static %}
 
+<nav style="background-color: black;">
 <div class="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-  <h1 class="w-full text-3xl font-bold text-[#00df9a]">_DEPARTMENT OF CSE</h1>
+  <a href = "{% url 'home' %}" ><h1 class="w-full text-3xl font-bold text-[#00df9a]">_DEPARTMENT OF CSE</h1></a>
   <ul class="hidden md:flex">
-    <li class="p-4">Home</li>
+    <a href = "{% url 'home' %}" ><li class="p-4">Home</li></a>
     <li class="p-4">Clubs</li>
-    <li class="p-4">Gallery</li>
+    <a href = "{% url 'gallery' %}" ><li class="p-4">Gallery</li></a>
     <li class="p-4">
       {% if request.user.is_authenticated %}
 
@@ -34,7 +35,7 @@
     <h1 class="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
     <li class="p-4 border-b border-gray-600">Home</li>
     <li class="p-4 border-b border-gray-600">Clubs</li>
-    <li class="p-4 border-b border-gray-600">Gallery</li>
+    <a href = "{% url 'gallery' %}" ><li class="p-4 border-b border-gray-600">Gallery</li></a>
     <li class="p-4">
       {% if request.user.is_authenticated %}
 
@@ -48,7 +49,7 @@
     </li>
   </ul>
 </div>
-
+</nav>
 
 <style>
   @media (max-width: 767px) {

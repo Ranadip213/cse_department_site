@@ -7,7 +7,7 @@ class Gallery(models.Model):
     """
     topic = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, null=True)
-    description = models.ImageField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='upload/', blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -40,7 +40,7 @@ class Gallery(models.Model):
         Returns the URL of the image associated with the gallery.
         """
         if self.image:
-            return 'http://127.0.0.1:5500/' + self.image.url
+            return 'http://127.0.0.1:8000/' + self.image.url
         return ''
 
 class Club(models.Model):
