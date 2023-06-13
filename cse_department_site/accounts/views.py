@@ -1,62 +1,116 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserForm
+from .forms import AlumniForm, CreateUserForm, StaffForm, StudentForm
 from django.contrib import messages
 
+
 def register_page(request):
-    # Check if the user is already authenticated
+    """
+    Renders the registration page and handles user registration.
+    If the user is already authenticated, redirects to the home page.
+    """
     if request.user.is_authenticated:
-        # Redirect to home page if the user is already logged in
         return redirect('home')
     else:
-        # Create an instance of the CreateUserForm
         form = CreateUserForm()
         if request.method == 'POST':
-            # Populate the form with data from the request
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                # Save the form and create a new user
-                form.save()
-                # Get the username of the newly created user
-                user = form.cleaned_data.get('username')
-                # Send a success message
-                messages.success(request, 'Account was created for ' + user)
-                # Redirect to the home page
-                return redirect('home')
-        # Render the register template with the form
-        return render(request, 'components/register.html', context={'form': form})         
+                user = form.save()
+                login(request, user)
+                user_type = form.cleaned_data.get('user_type')
+                if user_type == 'student':
+                    return redirect('register_student')
+                elif user_type == 'alumni':
+                    return redirect('register_alumni')
+                elif user_type == 'staff':
+                    return redirect('register_staff')
+
+        return render(request, 'components/register.html', context={'form': form})
+
+
+@login_required
+def student_form(request):
+    """
+    Renders the student registration form and handles form submission.
+    """
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.user = request.user
+            student.save()
+            return redirect('home')
+    else:
+        form = StudentForm()
+
+    return render(request, 'components/student_form.html', context={'form': form})
+
+
+@login_required
+def alumni_form(request):
+    """
+    Renders the alumni registration form and handles form submission.
+    """
+    if request.method == 'POST':
+        form = AlumniForm(request.POST)
+        if form.is_valid():
+            alumni = form.save(commit=False)
+            alumni.user = request.user
+            alumni.save()
+            return redirect('home')
+    else:
+        form = AlumniForm()
+
+    return render(request, 'components/alumni_form.html', context={'form': form})
+
+
+@login_required
+def staff_form(request):
+    """
+    Renders the staff registration form and handles form submission.
+    """
+    if request.method == 'POST':
+        form = StaffForm(request.POST)
+        if form.is_valid():
+            staff = form.save(commit=False)
+            staff.user = request.user
+            staff.save()
+            return redirect('home')
+    else:
+        form = StaffForm()
+
+    return render(request, 'components/staff_form.html', context={'form': form})
+
 
 def login_page(request):
-    # Check if the user is already authenticated
+    """
+    Renders the login page and handles user authentication.
+    If the user is already authenticated, redirects to the home page.
+    """
     if request.user.is_authenticated:
-        # If yes, redirect the user to the home page
         return redirect('home')
     else:
-        # If the request method is 'POST'
         if request.method == 'POST':
-            # Get the username and password from the request
             username = request.POST.get('username')
             password = request.POST.get('password')
 
-            # Attempt to authenticate the user using the provided credentials
             user = authenticate(request, username=username, password=password)
 
-            # If authentication is successful
             if user is not None:
-                # Log the user in and redirect them to the home page
                 login(request, user)
                 return redirect('home')
             else:
-                # If authentication failed, display a message to the user
                 messages.info(request, 'Username OR password is incorrect')
 
-        # If the request method is not 'POST', render the login page
         return render(request, 'components/login.html')
-    
-def logoutUser(request):
+
+
+@login_required
+def logout_user(request):
     """
-    Logs out the current user and redirects them to the login page
+    Logs out the current user and redirects them to the login page.
     """
     logout(request)
     messages.info(request, "You have been successfully logged out.")
