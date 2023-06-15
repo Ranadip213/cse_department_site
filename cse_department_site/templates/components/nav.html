@@ -1,28 +1,60 @@
 {% load static %}
 
-<nav style="background-color: black;">
-  <div class="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-    <a href="{% url 'home' %}"><h1 class="w-full text-3xl font-bold text-[#00df9a]">_DEPARTMENT OF CSE</h1></a>
+<nav style="background-color: black">
+  <div
+    class="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white"
+  >
+    <a href="{% url 'home' %}"
+      ><h1 class="w-full text-3xl font-bold text-[#00df9a]">
+        _DEPARTMENT OF CSE
+      </h1></a
+    >
     <ul class="hidden md:flex">
       <a href="{% url 'home' %}"><li class="p-4">Home</li></a>
       <li class="p-4">Clubs</li>
       <a href="{% url 'gallery' %}"><li class="p-4">Gallery</li></a>
       <li class="p-4">
         {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}"><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Logout</button></a>
+        <a href="{% url 'logout' %}"
+          ><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Logout
+          </button></a
+        >
         {% else %}
-        <a href="{% url 'register' %}"><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Login</button></a>
+        <a href="{% url 'login' %}"
+          ><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Login
+          </button></a
+        >
         {% endif %}
       </li>
     </ul>
     <div class="block md:hidden">
       <span class="close-icon hidden">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </span>
       <span class="menu-icon">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M3 12h18M3 6h18M3 18h18"></path>
         </svg>
       </span>
@@ -31,12 +63,22 @@
       <h1 class="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
       <li class="p-4 border-b border-gray-600">Home</li>
       <li class="p-4 border-b border-gray-600">Clubs</li>
-      <a href="{% url 'gallery' %}"><li class="p-4 border-b border-gray-600">Gallery</li></a>
+      <a href="{% url 'gallery' %}"
+        ><li class="p-4 border-b border-gray-600">Gallery</li></a
+      >
       <li class="p-4">
         {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}"><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Logout</button></a>
+        <a href="{% url 'logout' %}"
+          ><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Logout
+          </button></a
+        >
         {% else %}
-        <a href="{% url 'register' %}"><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Login</button></a>
+        <a href="{% url 'login' %}"
+          ><button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Login
+          </button></a
+        >
         {% endif %}
       </li>
     </ul>
@@ -47,7 +89,7 @@
   @media (max-width: 767px) {
     .nav-menu {
       position: fixed;
-      left: 0;
+      left: 0;,
       top: 0;
       width: 100%;
       height: 100vh;
@@ -98,35 +140,35 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-    const navMenu = document.querySelector('.nav-menu');
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
+    const navMenu = document.querySelector(".nav-menu");
 
-    menuIcon.addEventListener('click', function() {
-      navMenu.classList.toggle('show');
-      menuIcon.style.display = 'none';
-      closeIcon.style.display = 'block';
+    menuIcon.addEventListener("click", function () {
+      navMenu.classList.toggle("show");
+      menuIcon.style.display = "none";
+      closeIcon.style.display = "block";
     });
 
-    closeIcon.addEventListener('click', function() {
-      navMenu.classList.toggle('show');
-      closeIcon.style.display = 'none';
-      menuIcon.style.display = 'block';
+    closeIcon.addEventListener("click", function () {
+      navMenu.classList.toggle("show");
+      closeIcon.style.display = "none";
+      menuIcon.style.display = "block";
     });
 
     // Close the menu if a link is clicked
-    const menuLinks = navMenu.querySelectorAll('a');
-    menuLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('show');
-        closeIcon.style.display = 'none';
-        menuIcon.style.display = 'block';
+    const menuLinks = navMenu.querySelectorAll("a");
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        navMenu.classList.remove("show");
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
       });
     });
 
     // Show the menu icon and hide the close icon by default
-    menuIcon.style.display = 'block';
-    closeIcon.style.display = 'none';
+    menuIcon.style.display = "block";
+    closeIcon.style.display = "none";
   });
 </script>
