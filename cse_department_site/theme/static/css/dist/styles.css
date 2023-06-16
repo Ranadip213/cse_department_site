@@ -725,12 +725,24 @@ select {
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
 .bottom-20 {
   bottom: 5rem;
 }
 
 .bottom-10 {
   bottom: 2.5rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.left-0 {
+  left: 0px;
 }
 
 .m-4 {
@@ -859,6 +871,10 @@ select {
 
 .h-56 {
   height: 14rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {
