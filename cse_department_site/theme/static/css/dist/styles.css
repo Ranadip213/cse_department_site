@@ -725,10 +725,6 @@ select {
   position: absolute;
 }
 
-.relative {
-  position: relative;
-}
-
 .bottom-20 {
   bottom: 5rem;
 }
