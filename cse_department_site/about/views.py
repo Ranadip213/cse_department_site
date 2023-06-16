@@ -15,8 +15,8 @@ def gallery_images(request):
     Retrieves all gallery images.
     Renders the 'gallery.html' template with the retrieved images.
     """
-    data = Gallery.objects.all()
-    context = {'images': data}
+    images = Gallery.objects.all()
+    context = {'images': images}
     return render(request, 'screens/gallery.html', context)
 
 def clubs(request):

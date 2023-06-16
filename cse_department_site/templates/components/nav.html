@@ -11,7 +11,7 @@
     >
     <ul class="hidden md:flex">
       <a href="{% url 'home' %}"><li class="p-4">Home</li></a>
-      <li class="p-4">Clubs</li>
+      <a href="#clubs"><li class="p-4">Clubs</li></a>
       <a href="{% url 'gallery' %}"><li class="p-4">Gallery</li></a>
       <li class="p-4">
         {% if request.user.is_authenticated %}
@@ -62,7 +62,7 @@
     <ul class="nav-menu hidden">
       <h1 class="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
       <li class="p-4 border-b border-gray-600">Home</li>
-      <li class="p-4 border-b border-gray-600">Clubs</li>
+      <a href="#clubs"><li class="p-4 border-b border-gray-600">Clubs</li></a>
       <a href="{% url 'gallery' %}"
         ><li class="p-4 border-b border-gray-600">Gallery</li></a
       >
