@@ -18,12 +18,3 @@ def gallery_images(request):
     images = Gallery.objects.all()
     context = {'images': images}
     return render(request, 'screens/gallery.html', context)
-
-def clubes_page(request):
-    """
-    Retrieves all clubs.
-    Renders the 'clubs.html' template with the retrieved clubs.
-    """
-    clubs = Club.objects.all()
-    context = {'clubs':clubs}
-    return render(request, 'components/clubs_pages.html', context)
