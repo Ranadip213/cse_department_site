@@ -19,10 +19,11 @@ def gallery_images(request):
     context = {'images': images}
     return render(request, 'screens/gallery.html', context)
 
-def clubs(request):
+def clubes_page(request):
     """
     Retrieves all clubs.
     Renders the 'clubs.html' template with the retrieved clubs.
     """
     clubs = Club.objects.all()
-    return render(request, 'screens/clubs.html', {'clubs': clubs})
+    context = {'clubs':clubs}
+    return render(request, 'components/clubs_pages.html', context)
