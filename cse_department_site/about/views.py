@@ -18,3 +18,6 @@ def gallery_images(request):
     images = Gallery.objects.all()
     context = {'images': images}
     return render(request, 'screens/gallery.html', context)
+
+def student(request):
+    return render(request, 'screens/student.html')
