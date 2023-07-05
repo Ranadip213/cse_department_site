@@ -28,5 +28,8 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 
+handler404 = 'base.views.error_404'
+handler500 = 'base.views.error_500'
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

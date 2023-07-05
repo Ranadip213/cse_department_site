@@ -21,3 +21,6 @@ def gallery_images(request):
 
 def student(request):
     return render(request, 'screens/student.html')
+
+def facalty(request):
+    return render(request, 'screens/facalty.html')
