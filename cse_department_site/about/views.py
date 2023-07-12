@@ -35,3 +35,4 @@ def alumai(request):
     data = Alumni.objects.all()
     context = {"alumais": data}
     return render(request, 'screens/alumai.html', context)
+
