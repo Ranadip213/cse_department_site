@@ -24,3 +24,6 @@ def student(request):
 
 def facalty(request):
     return render(request, 'screens/facalty.html')
+
+def About(request):
+    return render(request, 'screens/About.html')
