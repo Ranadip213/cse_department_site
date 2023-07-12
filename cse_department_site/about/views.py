@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Club, Gallery
 
+from accounts.models import Student, Staff, Alumni
+
 def carousel_images(request):
     """
     Retrieves the latest 6 gallery images for the carousel.
@@ -20,7 +22,16 @@ def gallery_images(request):
     return render(request, 'screens/gallery.html', context)
 
 def student(request):
-    return render(request, 'screens/student.html')
+    data = Student.objects.all()
+    context = {"students": data}
+    return render(request, 'screens/student.html', context)
 
 def facalty(request):
-    return render(request, 'screens/facalty.html')
+    data = Student.objects.all()
+    context = {"facaltys": data}
+    return render(request, 'screens/facalty.html', context)
+
+def alumai(request):
+    data = Alumni.objects.all()
+    context = {"alumais": data}
+    return render(request, 'screens/alumai.html', context)
