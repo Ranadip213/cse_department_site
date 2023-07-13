@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="bg-black">
+  <script src="https://cdn.tailwindcss.com"></script>
+<div class="text-gray-900 pt-12 pr-0 pb-14 pl-0 bg-black">
+<div class="w-full pt-4 pr-5 pb-6 pl-5 mt-0 mr-auto mb-0 ml-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16
+max-w-7xl">
+<div class="flex flex-col items-center sm:px-5 md:flex-row">
+<div class="flex flex-col items-start justify-center w-full h-full pt-6 pr-0 pb-6 pl-0 mb-6 md:mb-0 md:w-1/2">
+  <div class="flex flex-col items-start justify-center h-full space-y-3 transform md:pr-10 lg:pr-16
+      md:space-y-5">
+    <div class="bg-green-500 flex items-center leading-none rounded-full text-gray-50 pt-1.5 pr-3 pb-1.5 pl-2
+        uppercase inline-block">
+      <p class="inline">
+        <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewbox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0
+            00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755
+            1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1
+            0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </p>
+      <p class="inline text-xs font-medium"><strong>Join</strong></p>
+    </div>
+    <a class="text-4xl text-white font-bold leading-none lg:text-5xl xl:text-6xl">WELCOME TO ICFAI UNIVERSITY TRIPURA</a>
+    <a class="text-3xl text-white font-bold leading-none lg:text-3xl xl:text-3xl">Be anything.Be creative</a>
+    <p class="mt-3 text-xl leading-relaxed text-slate-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio dolores quisquam earum consequuntur natus dicta, cumque quia! Dolores est incidunt maxime obcaecati, fugit consectetur nihil similique velit dolorum, placeat provident.
+  
+    </div>
+    <p class="mt-3 text-xl leading-relaxed text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
+        gravida pellentesque urna varius vitae.</p>
+</div>
+
+<div class="w-full md:w-1/2">
+  <div class="block transform transition-transform duration-500 ease-in-out hover:scale-110  ">
+    <iframe width="660" height="400" src="https://www.youtube.com/embed/web8KJ2Eq_w?&autoplay=1&mute=1" type="vedio/mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share muted autoplay controls " autoplay="autoplay" allowfullscreen ></iframe>
+</div>
+  
+</div>
+</div>
+</div>
+<div class="flex">
+<div class="w-1/2 lg:h-full flex lg:items-end justify-center pl-[15em] mt-[8rem] p-4">
+   <img src="{% static 'images/loc.jpeg' %}" alt="">
+</div>
+<div class="w-1/2 lg:h-full flex lg:items-end  p-4">
+<div class="min-h-screen w-full items-center justify-end bg-black-100 ml-[6rem]">
+    <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+        <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-600">Name</label>
+                <input type="text" id="name" name="name" class="border border-gray-300 rounded-md p-2 w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-600">Email</label>
+                <input type="email" id="email" name="email" class="border border-gray-300 rounded-md p-2 w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-600">Message</label>
+                <textarea id="message" name="message" rows="4" class="border border-gray-300 rounded-md p-2 w-full" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600">Send Message</button>
+            </div>
+        </form>
+    </div>
+
+</div></div>
+
+</div>
+</div>
+{% endblock content %}

@@ -31,10 +31,12 @@ def student(request):
 
 
 def facalty(request):
-    data = Student.objects.all()
+    data = Staff.objects.all()
     context = {"facaltys": data}
     return render(request, 'screens/facalty.html', context)
 
+def About(request):
+    return render(request, 'screens/About.html')
 
 def alumai(request):
     data = Alumni.objects.all()
