@@ -12,7 +12,7 @@
     /></a>
     <ul class="nav-links md:flex">
       <a href="{% url 'home' %}"><li class="p-4">Home</li></a>
-      <a href="#clubs"><li class="p-4">Clubs</li></a>
+      <a href="{% url 'home' %}#clubs"><li class="p-4">Clubs</li></a>
       <a href="{% url 'gallery' %}"><li class="p-4">Gallery</li></a>
       
 
@@ -44,7 +44,7 @@
           >
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-            href=""
+            href="{% url 'resources' %}"
             >Resources</a
           >
         </div>
@@ -78,7 +78,7 @@
           >
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-            href="#event-notice"
+            href="{% url 'alumai' %}"
             >Alumni</a
           >
           <a
@@ -87,10 +87,10 @@
             >Faculty</a
           >
           <a
-          class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-          href="{% url 'About' %}"
-          >About us</a
-        >
+            class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
+            href="{% url 'home' %}#event-notice"
+            >Notice && Events</a
+          >
         </div>
       </li>
 
