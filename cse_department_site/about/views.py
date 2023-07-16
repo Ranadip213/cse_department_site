@@ -42,3 +42,9 @@ def alumai(request):
     data = Alumni.objects.all()
     context = {"alumais": data}
     return render(request, 'screens/alumai.html', context)
+
+def resources(request):
+    #data = Alumni.objects.all()
+    #context = {"resources": data}
+    return render(request, 'screens/resources.html'#, context
+                  )
