@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Club, Gallery
-
+from .forms import contactuoform
+from django.contrib import messages
 from accounts.models import Student, Staff, Alumni
 
 
@@ -36,7 +37,16 @@ def facalty(request):
     return render(request, 'screens/facalty.html', context)
 
 def About(request):
-    return render(request, 'screens/About.html')
+    form = contactuoform()
+    if request.method == 'POST':
+        form = contactuoform(request.POST)
+        if form.is_valid():
+            form.save()
+
+    messages.success(request, "massge sent success fully..")
+
+    context = {'form': form}
+    return render(request, 'screens/About.html', context)
 
 def alumai(request):
     data = Alumni.objects.all()
