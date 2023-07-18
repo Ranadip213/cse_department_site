@@ -35,17 +35,14 @@
         <div>
           <h6 class='font-medium text-gray-400'>Company</h6>
           <ul>
-            <li class='py-2 text-sm'>About</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
+            <a href="{% url 'About' %}"><li class='py-2 text-sm'>About</li></a>
+            <a href="{% url 'gallery' %}"><li class='py-2 text-sm'>Gallery</li></a>
+            <a href="{% url 'home' %}#clubs"><li class='py-2 text-sm'>Clubs</li></a>
           </ul>
         </div>
         <div>
           <h6 class='font-medium text-gray-400'>Legal</h6>
           <ul>
-            <li class='py-2 text-sm'>somthing</li>
             <li class='py-2 text-sm'>Policy</li>
             <li class='py-2 text-sm'>Terms</li>
           </ul>

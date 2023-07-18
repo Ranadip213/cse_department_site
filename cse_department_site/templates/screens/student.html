@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="bg-black">
+    
+    <div class="container mx-auto px-4 py-8">
+
+
+        {% for student in students %}
+        <div class="student-card bg-white border border-gray-300 rounded-lg shadow-md flex mb-4 p-4">
+          <img src="" alt="student" class="w-20 h-20 rounded-full mr-4">
+          <div>
+            <h2 class="text-xl font-semibold mb-2">{{student.full_name}}</h2>
+            <p class="mb-1">{{student.year}}</p>
+            <p class="mb-1">{{student.email}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      
+      
+    </div>
+</section>
+{% endblock content %}

@@ -40,4 +40,4 @@ class StaffForm(forms.ModelForm):
     """
     class Meta:
         model = Staff
-        fields = ['full_name','contact_number','email','specialization']
+        fields = ['full_name','contact_number','email','specialization', 'image']
