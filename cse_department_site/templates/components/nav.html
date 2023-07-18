@@ -165,13 +165,23 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+  }
 </style>
-<script
-  src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js"
-  defer
-></script>
 <script>
-  document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".nav-links").classList.toggle("md:flex");
+  const menuIcon = document.querySelector(".menu-icon");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuIcon.addEventListener("click", function () {
+    if (navLinks.style.display === "none" || navLinks.style.display === "") {
+      navLinks.style.display = "block";
+    } else {
+      navLinks.style.display = "none";
+    }
   });
 </script>
+
