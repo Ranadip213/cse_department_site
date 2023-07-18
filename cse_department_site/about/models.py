@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+import uuid
 
 class Gallery(models.Model):
     """
@@ -68,7 +69,15 @@ class Club(models.Model):
         
         super().save(*args, **kwargs)
 
-class contactus(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=254)
-    message = models.TextField()
+class Message(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=True)
+    email = models.CharField(max_length=200, null=True, blank=True)
+    subject = models.CharField(max_length=200, null=True, blank=True)
+    body = models.TextField(blank=True)
+    is_read = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    id = models.UUIDField(default=uuid.uuid4,  unique=True,
+                          primary_key=True, editable=False)
+
+    def __str__(self):
+        return self.name

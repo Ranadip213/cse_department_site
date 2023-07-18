@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Club, Gallery
-from .forms import contactuoform
+from .forms import MessageForm
 from django.contrib import messages
 from accounts.models import Student, Staff, Alumni
 
@@ -37,9 +37,9 @@ def facalty(request):
     return render(request, 'screens/facalty.html', context)
 
 def About(request):
-    form = contactuoform()
+    form = MessageForm()
     if request.method == 'POST':
-        form = contactuoform(request.POST)
+        form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
 
